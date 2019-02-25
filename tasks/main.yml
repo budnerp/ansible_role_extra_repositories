@@ -1,5 +1,5 @@
 ---
-  - name: Enable EPEL repository
+  - name: EXTRA REPOS - enable EPEL repository
     yum:
       name: epel-release
       state: installed
@@ -9,7 +9,7 @@
     retries: 3
     delay: 5
 
-  - name: Enable Remi's repository for CeontOS 7
+  - name: EXTRA REPOS - enable Remi's repository for CeontOS 7
     yum:
       name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
       state: installed
@@ -19,11 +19,11 @@
     retries: 3
     delay: 5
 
-  - name: Disable remi-safe repository
+  - name: EXTRA REPOS - disable remi-safe repository
     command: yum-config-manager --disable remi-safe
     when: remi_result.changed
 
-  - name: Enable Remi's RPM repository
+  - name: EXTRA REPOS - enable Remi's RPM repository
     command: yum-config-manager --enable remi
     when: remi_result.changed
 
