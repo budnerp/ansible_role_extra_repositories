@@ -24,7 +24,7 @@
     when: remi_result.changed
 
   - name: EXTRA REPOS - enable Remi's RPM repository
-    command: yum-config-manager --enable remi
+    command: yum-config-manager --enable remi-php72
     when: remi_result.changed
 
 #  - debug:
