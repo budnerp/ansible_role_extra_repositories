@@ -19,6 +19,12 @@
     retries: 3
     delay: 5
 
+  - name: EXTRA REPOS - enable IUS repository for CeontOS 7
+    yum:
+      name: https://centos7.iuscommunity.org/ius-release.rpm
+      state: installed
+    register: ius_result
+
   - name: EXTRA REPOS - disable remi-safe repository
     command: yum-config-manager --disable remi-safe
     when: remi_result.changed
